@@ -5,7 +5,7 @@ const querystring = require('querystring'),
     jwt = require('jsonwebtoken'),
     fs = require('fs');
 
-class WebSocket {
+class WebSocketProxy {
     constructor(config) {
         // web socket stuff
         this.WebSocketServer = {};
@@ -57,6 +57,8 @@ class WebSocket {
         this.wss.on('error', (err) => {
             console.error('something went wrong with WebSocketServer: ' + err);
         });
+
+            
     }
 
     _registerClient(ws, req) {
@@ -76,6 +78,10 @@ class WebSocket {
             ws.on('error', (err) => {
                 console.error(`WebSocket error for ${clientId}: ${err.message}`);
             });
+
+                  ws.on('message', (message) => {
+                       console.log(`[${clientId}] Mensaje recibido: ${message}`);
+                  });
 
             console.log(`Client ${clientId} is now connected.`);
 
@@ -153,4 +159,4 @@ class WebSocket {
     }
 }
 
-module.exports = WebSocket;
+module.exports = WebSocketProxy;

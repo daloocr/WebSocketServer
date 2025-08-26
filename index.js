@@ -1,5 +1,5 @@
 // index.js
-const WebSocketProxy = require('./WebSocketServer');
+const WebSocketProxy = require('./WebSocketProxy');
 const config = require('./config');
 
 async function main() {

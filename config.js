@@ -1,7 +1,7 @@
 // config.js
 module.exports = {
     // Puerto en el que escuchará el servidor WebSocket.
-    wsPort: 8080,
+    wsPort: 8088,
 
     // Método de autenticación ('none', 'jwt', 'basic').
     authMethod: 'none',
